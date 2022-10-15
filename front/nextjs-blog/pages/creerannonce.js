@@ -1,14 +1,19 @@
-import Script from 'next/script'
+import Link from 'next/link';
 
 export default function creerannonce() {
+
+    
+
     return (
         <form action="/send-data-here" method="post">
         <label for="first">First name:</label>
-        <input type="text" id="first" name="first" />
+        <input type="text" />
         <label for="last">Last name:</label>
-        <input type="text" id="last" name="last" />
-        <button type="submit">Submit</button>
+        <input type="text"/>
+        <Link href="/"><button>Submit</button></Link>
+        
         </form>
 
-    )
+    )      
+
 }

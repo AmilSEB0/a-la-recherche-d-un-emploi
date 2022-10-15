@@ -1,11 +1,16 @@
 
 
-export default function Home() {
+export default function listecandidats() {
+
+
   return (
     
     
 
-      <><main>
+      <>
+        <div class="droite"><Link href="/creerannonce">Créer une annonce</Link></div>
+
+      <main>
           <h1 className="title">
               Bienvenue sur à la recherche d'un emploi
           </h1>
@@ -18,7 +23,6 @@ export default function Home() {
                   <p><u>ville :</u> 2</p>
                   <p><u>description :</u> 2</p>
                   <p><u>nombre de cercle :</u> 2</p>
-
               </div>
               <div>
                   <p><u>nom :</u> Liste supra génialisime de la mort qui tue</p>
@@ -51,4 +55,5 @@ export default function Home() {
       
       `}</style></>
   )
+  
 }

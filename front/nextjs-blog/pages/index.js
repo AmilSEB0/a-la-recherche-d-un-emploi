@@ -1,12 +1,28 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link';
+
 
 export default function Home() {
+
+  function togg(){
+    if(getComputedStyle(d2).display != "none"){
+      d2.style.display = "none";
+    } else {
+      d2.style.display = "block";
+    }
+  };
+
+
+
+
+
   return (
     <div className="container">
       <Head>
         <title>à la recherche d'un emploi</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div class="droite"><Link href="/creerannonce">Créer une annonce</Link></div>
 
       <main>
         <h1 className="title">
@@ -16,19 +32,28 @@ export default function Home() {
         <div class="constructeur">
 
           <div> 
-              <p><u>Liste supra génialisime</u></p>
-              <p><u>nom de l'employeur:</u> 2</p>
+              <h1><u>Developpeur Full Stack</u></h1>
+              <p><u>nom de l'employeur:</u> </p>
+              <div class="encadrer">CDI</div>
               <p><u>ville :</u> 2</p>
+              <span id="d2">
               <p><u>description :</u> 2</p>
               <p><u>nombre de cercle :</u> 2</p>
+              </span>
+              <a onClick={togg}>lire la suite</a>
+
 
           </div>
           <div> 
-              <p><u>nom :</u> Liste supra génialisime de la mort qui tue</p>
-              <p><u>nombre de carré :</u> 1</p>
-              <p><u>nombre de rectangle :</u> 2</p>
-              <p><u>nombre de triangle :</u> 0</p>
-              <p><u>nombre de cercle :</u> 0</p>
+          <h1><u>Developpeur Back</u></h1>
+              <p><u>nom de l'employeur:</u> </p>
+              <div class="encadrer">CDI</div>
+              <p><u>ville :</u> 2</p>
+              <span id="d1">
+              <p><u>description :</u> 2</p>
+              <p><u>nombre de cercle :</u> 2</p>
+              </span>
+              <a onClick={togg}>lire la suite</a>
 
           </div>
         </div>
@@ -53,6 +78,13 @@ export default function Home() {
       margin-right: 90%;
       margin-top: 1%;
       margin-bottom: 2%;
+  }
+  .droite{
+    text-align: right;
+  }
+  .encadrer{
+    border: 1px;
+    solid black; 
   }
       `}</style>
 
