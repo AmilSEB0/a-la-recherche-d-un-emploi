@@ -13,6 +13,10 @@ export default function Home() {
   };
 
 
+  function lien(){
+    window.location.href = "/postuler";
+}
+
 
 
 
@@ -39,6 +43,7 @@ export default function Home() {
               <span id="d2">
               <p><u>description :</u> 2</p>
               <p><u>nombre de cercle :</u> 2</p>
+              <button onClick={lien}>Postulez</button>
               </span>
               <a onClick={togg}>lire la suite</a>
 
@@ -52,6 +57,7 @@ export default function Home() {
               <span id="d1">
               <p><u>description :</u> 2</p>
               <p><u>nombre de cercle :</u> 2</p>
+              <button onClick={lien}>Postulez</button>
               </span>
               <a onClick={togg}>lire la suite</a>
 
