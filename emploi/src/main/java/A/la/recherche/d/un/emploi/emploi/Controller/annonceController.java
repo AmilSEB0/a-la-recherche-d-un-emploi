@@ -1,5 +1,6 @@
 package A.la.recherche.d.un.emploi.emploi.Controller;
 
+import A.la.recherche.d.un.emploi.emploi.dao.annonceDao;
 import A.la.recherche.d.un.emploi.emploi.dao.annonceDTO;
 import A.la.recherche.d.un.emploi.emploi.employeur.annonce;
 import java.util.List;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class annonceController {
-    public final A.la.recherche.d.un.emploi.emploi.dao.annonceDao annonceDao;
+    public final annonceDao annonceDao;
 
-    public annonceController(A.la.recherche.d.un.emploi.emploi.dao.annonceDao annonceDao) {
+    public annonceController(annonceDao annonceDao) {
         this.annonceDao = annonceDao;
     }
 
