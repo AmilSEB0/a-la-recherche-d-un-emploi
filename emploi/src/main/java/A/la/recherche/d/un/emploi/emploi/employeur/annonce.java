@@ -13,7 +13,7 @@ public class annonce {
     private String nom_employeur;
     private String titre;
     private String ville;
-    private String descriptif;
+    private String description;
     private String contrat;
     private int nombre_de_clic;
     private int nombre_de_candidats;
@@ -24,7 +24,14 @@ public class annonce {
 
 
 
-    public annonce(String nom_employeur, String titre, String ville, String descriptif,  String contrat, int nombre_de_clic,  int nombre_de_candidats) {
+    public annonce(String nom_employeur, String titre, String ville, String description,  String contrat, int nombre_de_clic,  int nombre_de_candidats){
+        this.nom_employeur = nom_employeur;
+        this.titre = titre;
+        this.ville = ville;
+        this.description = description;
+        this.contrat = contrat;
+        this.nombre_de_clic = nombre_de_clic;
+        this.nombre_de_candidats = nombre_de_candidats;
     }
 
     public annonce() {
@@ -49,8 +56,8 @@ public class annonce {
         return ville;
     }
 
-    public String getDescriptif() {
-        return descriptif;
+    public String getDescription() {
+        return description;
     }
 
     public String getContrat() {

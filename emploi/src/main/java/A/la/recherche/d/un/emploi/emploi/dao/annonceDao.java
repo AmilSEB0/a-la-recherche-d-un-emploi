@@ -9,4 +9,8 @@ public class annonceDao extends annonce {
         return id;
     }
 
+    // public Object findAll() {
+    //     return null;
+    // }
+
 }
