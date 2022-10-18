@@ -9,6 +9,7 @@ public class candidat {
     private String nom;
     private String prenom;
     private String email;
+    private int id_annonce;
 
 
     public candidat(String nom, String prenom, String email) {

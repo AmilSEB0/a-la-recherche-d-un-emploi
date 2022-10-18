@@ -1,10 +1,12 @@
 package A.la.recherche.d.un.emploi.emploi.dao;
 
-import A.la.recherche.d.un.emploi.emploi.employeur.annonce;
+import org.springframework.stereotype.Repository;
 
-@org.springframework.stereotype.Repository
-public class candidatsDao extends annonce {
-    int findById(int id) {
-        return id;
-    }
+import A.la.recherche.d.un.emploi.emploi.employeur.candidat;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@
+Repository
+public interface candidatsDao extends JpaRepository<candidat, Integer> {
+    candidat findById(int id);
 }

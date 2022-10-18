@@ -1,13 +1,14 @@
 package A.la.recherche.d.un.emploi.emploi.dao;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import A.la.recherche.d.un.emploi.emploi.employeur.annonce;
+import org.springframework.stereotype.Repository;
 
-@org.springframework.stereotype.Repository
-public class annonceDao extends annonce {
+@Repository
+public interface annonceDao extends JpaRepository<annonce, Integer> {
 
-    int findById(int id) {
-        return id;
-    }
+    annonce findById(int id);
 
     // public Object findAll() {
     //     return null;

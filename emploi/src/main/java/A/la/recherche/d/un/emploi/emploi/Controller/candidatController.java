@@ -2,6 +2,7 @@ package A.la.recherche.d.un.emploi.emploi.Controller;
 
 import A.la.recherche.d.un.emploi.emploi.dao.candidatsDao;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import A.la.recherche.d.un.emploi.emploi.employeur.candidat;
 import java.util.List;
 
-
+@CrossOrigin()
 @RestController
 public class candidatController {
     public final candidatsDao candidatsDao;
@@ -36,7 +37,7 @@ public class candidatController {
         candidatsDao.deleteById(id);
      }
  
-     @PostMapping(value = "/list")
+     @PostMapping(value = "/candidat")
      public candidat addList(@RequestBody candidat candidat){
          return candidatsDao.save(candidat);
      }
