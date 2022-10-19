@@ -1,9 +1,7 @@
 package A.la.recherche.d.un.emploi.emploi.employeur;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @Entity
 public class candidat {
@@ -14,14 +12,14 @@ public class candidat {
     private String nom;
     private String prenom;
     private String email;
-    
-   // private Annonce annnonce;
+    private int id_annonce;
 
 
-    public candidat(String nom, String prenom, String email) {
+    public candidat(String nom, String prenom, String email, int id_annonce) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
+        this.id_annonce = id_annonce;
     }
 
     public candidat() {

@@ -1,25 +1,23 @@
 package A.la.recherche.d.un.emploi.emploi.employeur;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
 
 
+
 @Entity
 public class annonce {
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_annonce", referencedColumnName = "id")
+    private List<candidat> candidat = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    // @OneToMany(cascade = {CascadeType.ALL})
-    // @javax.persistence.JoinColumn(name = "id_annonce", referencedColumnName = "id")
-  //  private List<candidat> candidat = new ArrayList<>();
+   
 
 
     private String nom_employeur;
@@ -43,7 +41,7 @@ public class annonce {
         this.contrat = contrat;
         this.nombre_de_clic = nombre_de_clic;
         this.nombre_de_candidats = nombre_de_candidats;
-        //this.candidat = candidat;
+        this.candidat = candidat;
     }
 
     public annonce() {
@@ -112,5 +110,13 @@ public class annonce {
 
     public void setNombre_de_candidats(int nombre_de_candidats) {
         this.nombre_de_candidats = nombre_de_candidats;
+    }
+
+    public void setCandidat(List<candidat> candidat) {
+        this.candidat = candidat;
+    }
+
+    public List<candidat> getCandidat() {
+        return this.candidat;
     }
 }
