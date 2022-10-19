@@ -15,11 +15,10 @@ public class annonce {
 
     @Id
     @GeneratedValue
-    
     private int id;
-    @OneToMany(cascade = {CascadeType.ALL})
-    @javax.persistence.JoinColumn(name = "id_annonce", referencedColumnName = "id")
-    private List<candidat> candidat = new ArrayList<>();
+    // @OneToMany(cascade = {CascadeType.ALL})
+    // @javax.persistence.JoinColumn(name = "id_annonce", referencedColumnName = "id")
+  //  private List<candidat> candidat = new ArrayList<>();
 
 
     private String nom_employeur;
@@ -43,15 +42,13 @@ public class annonce {
         this.contrat = contrat;
         this.nombre_de_clic = nombre_de_clic;
         this.nombre_de_candidats = nombre_de_candidats;
-        this.candidat = candidat;
+        //this.candidat = candidat;
     }
 
     public annonce() {
 
     }
 
-
-    @Id
     public int getId() {
         return id;
     }
@@ -64,27 +61,55 @@ public class annonce {
         return nom_employeur;
     }
 
-    public String getVille() {
-        return ville;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getContrat() {
-        return contrat;
+    public void setNom_employeur(String nom_employeur) {
+        this.nom_employeur = nom_employeur;
     }
 
     public String getTitre() {
         return titre;
     }
 
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getContrat() {
+        return contrat;
+    }
+
+    public void setContrat(String contrat) {
+        this.contrat = contrat;
+    }
+
     public int getNombre_de_clic() {
         return nombre_de_clic;
     }
 
+    public void setNombre_de_clic(int nombre_de_clic) {
+        this.nombre_de_clic = nombre_de_clic;
+    }
+
     public int getNombre_de_candidats() {
         return nombre_de_candidats;
+    }
+
+    public void setNombre_de_candidats(int nombre_de_candidats) {
+        this.nombre_de_candidats = nombre_de_candidats;
     }
 }
