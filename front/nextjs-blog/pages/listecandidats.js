@@ -2,13 +2,13 @@
 
 export default function listecandidats() {
 
-
+ 
   return (
     
     
 
       <>
-        <div class="droite"><Link href="/creerannonce">Créer une annonce</Link></div>
+        <div class="droite"><Link href="/index.js">Voir les annonces</Link></div>
 
       <main>
           <h1 className="title">

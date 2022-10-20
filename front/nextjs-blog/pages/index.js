@@ -1,21 +1,24 @@
 import Head from 'next/head';
 import Link from 'next/link';
-
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  function togg(){
-    if(getComputedStyle(d2).display != "none"){
-      d2.style.display = "none";
-    } else {
-      d2.style.display = "block";
-    }
-  };
 
+const [ annonces, setAnnonces] = useState([])
+  const getAnnonces = async () =>{
+    const response = await fetch("http://localhost:9090/annonce")
+    const data = await response.json()
+    setAnnonces(data)
+  }
 
-  function lien(){
-    window.location.href = "/postuler";
+  function lien(id){
+    // window.location.href = "/postuler?"+id;
+    console.log("1");
 }
+useEffect(() => {
+  getAnnonces();
+}, [])
 
 
 
@@ -26,6 +29,7 @@ export default function Home() {
         <title>à la recherche d'un emploi</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+     
       <div class="droite"><Link href="/creerannonce">Créer une annonce</Link></div>
 
       <main>
@@ -35,7 +39,22 @@ export default function Home() {
 
         <div class="constructeur">
 
-          <div> 
+        {
+        annonces.map(annonce => {
+          return(
+            <div key={annonce.id}>
+              <h1><u>{annonce.titre}</u></h1>
+              <p><u>nom de l'employeur:</u> {annonce.nom_employeur}</p>
+              <div class="encadrer">{annonce.contrat}</div>
+              <p><u>ville :</u> {annonce.ville}</p>
+              <div onClick= {lien(annonce.id)}><button>Voir l'offre</button></div>
+              {/* <button >Voir l'offre</button> */}
+            </div>
+          )
+        })
+      }
+
+          {/* <div> 
               <h1><u>Developpeur Full Stack</u></h1>
               <p><u>nom de l'employeur:</u> </p>
               <div class="encadrer">CDI</div>
@@ -61,8 +80,8 @@ export default function Home() {
               </span>
               <a onClick={togg}>lire la suite</a>
 
-          </div>
-        </div>
+          </div>*/}
+        </div> 
         
 
       
@@ -77,7 +96,7 @@ export default function Home() {
   }
   
   .constructeur div {
-      width: 30%;
+      width: 20%;
       border: solid black 2px;
       background-color: rgb(248, 246, 246);
       /* margin-left: 10%; */
@@ -91,6 +110,9 @@ export default function Home() {
   .encadrer{
     border: 1px;
     solid black; 
+  }
+  p{
+    align-text: center;
   }
       `}</style>
 
