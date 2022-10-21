@@ -26,21 +26,21 @@ public class annonce {
     private String description;
     private String contrat;
     private int nombre_de_clic;
-    private int nombre_de_candidats;
+  //  private int nombre_de_candidats;
 
     
     
 
 
 
-    public annonce(String nom_employeur, String titre, String ville, String description,  String contrat, int nombre_de_clic,  int nombre_de_candidats, List<candidat> candidat){
+    public annonce(String nom_employeur, String titre, String ville, String description,  String contrat, int nombre_de_clic,  List<candidat> candidat){
         this.nom_employeur = nom_employeur;
         this.titre = titre;
         this.ville = ville;
         this.description = description;
         this.contrat = contrat;
         this.nombre_de_clic = nombre_de_clic;
-        this.nombre_de_candidats = nombre_de_candidats;
+        //this.nombre_de_candidats = nombre_de_candidats;
         this.candidat = candidat;
     }
 
@@ -104,13 +104,13 @@ public class annonce {
         this.nombre_de_clic = nombre_de_clic;
     }
 
-    public int getNombre_de_candidats() {
-        return nombre_de_candidats;
-    }
+    // public int getNombre_de_candidats() {
+    //     return nombre_de_candidats;
+    // }
 
-    public void setNombre_de_candidats(int nombre_de_candidats) {
-        this.nombre_de_candidats = nombre_de_candidats;
-    }
+    // public void setNombre_de_candidats(int nombre_de_candidats) {
+    //     this.nombre_de_candidats = nombre_de_candidats;
+    // }
 
     public void setCandidat(List<candidat> candidat) {
         this.candidat = candidat;
@@ -118,5 +118,15 @@ public class annonce {
 
     public List<candidat> getCandidat() {
         return this.candidat;
+    }
+
+    public int getNombre_de_candidats(){
+        int nombre_de_candidats = 0;
+        for (candidat candidat : candidat){
+           
+            nombre_de_candidats += 1;
+            
+        }
+        return nombre_de_candidats;
     }
 }

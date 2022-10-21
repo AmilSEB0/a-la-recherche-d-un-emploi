@@ -28,12 +28,12 @@ public class candidatController {
      }
  
      @DeleteMapping(value = "/candidat/{id}")
-     public void deleteForm(@PathVariable int id){
+     public void deleteCandidat(@PathVariable int id){
         candidatsDao.deleteById(id);
      }
  
      @PostMapping(value = "/candidat")
-     public candidat addList(@RequestBody candidat candidat){
+     public candidat addCandidat(@RequestBody candidat candidat){
          return candidatsDao.save(candidat);
      }
     

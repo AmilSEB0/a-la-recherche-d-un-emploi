@@ -20,8 +20,17 @@ export default function postuler() {
       const id = window.location.search.slice(1)
       const response = await fetch("http://localhost:9090/annonce/"+id)
       const data = await response.json()
-      setAnnonces(data)
+      setAnnonces([data])
       console.log(data)
+      // axios
+      // .get('http://localhost:9090/annonce/'+id)
+      // .then(res => {
+      //   console.log(res.data[0])
+      //   setAnnonces(res.data)
+      // })
+      // .catch(err => {
+      //   console.log(err)
+      // })
     }
   
     function lien(id){
@@ -35,23 +44,21 @@ export default function postuler() {
 
     return (
 
-      <><div class="constructeur">
-
+      <div class="constructeur">
         {
-        annonces.map(annonce => {
-          return (
-            <div key={annonce.id}>
-              <h1><u>{annonce.titre}</u></h1>
+    annonces.map((annonce, key) => (
+        <div key={key}>
+             <h1><u>{annonce.titre}</u></h1>
               <p><u>nom de l'employeur:</u> {annonce.nom_employeur}</p>
               <div class="encadrer">{annonce.contrat}</div>
               <p><u>ville :</u> {annonce.ville}</p>
               <div onClick={lien(annonce.id)}><button>Voir l'offre</button></div>
-              {/* <button >Voir l'offre</button> */}
-            </div>
-          );
-        })}
+        </div>
+    ))
+}
 
-      </div><form action="/validation" method="post">
+
+      <form action="/validation" method="post">
           <label>Nom*:</label>
           <input type="text" placeholder="Quelle est votre nom de famille" /><br></br>
           <label for="last">Prénom*:</label>
@@ -65,7 +72,8 @@ export default function postuler() {
           <input type="reset"></input><br></br>
           <input type="submit" value="Déposer ma candidature"></input>
 
-        </form></>
+        </form>
+        </div>
          
     )     
 

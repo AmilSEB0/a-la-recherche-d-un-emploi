@@ -29,7 +29,7 @@ public class annonceController {
      }
  
      @DeleteMapping(value = "/annonce/{id}")
-     public void deleteForm(@PathVariable int id){
+     public void deleteAnnonce(@PathVariable int id){
          annonceDao.deleteById(id);
      }
  
@@ -40,7 +40,7 @@ public class annonceController {
     //  }
 
     @PostMapping(value = "/annonce")
-    public annonce addList(@RequestBody annonce annonce){
+    public annonce addAnnonce(@RequestBody annonce annonce){
         return annonceDao.save(annonce);
     }
  
