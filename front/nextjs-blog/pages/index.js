@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
+import {useRouter} from "next/router"
+
 
 export default function Home() {
 
+  const router = useRouter();
 
 const [ annonces, setAnnonces] = useState([])
   const getAnnonces = async () =>{
@@ -12,10 +15,7 @@ const [ annonces, setAnnonces] = useState([])
     setAnnonces(data)
   }
 
-  function lien(id){
-    // window.location.href = "/postuler?"+id;
-    console.log("1");
-}
+
 useEffect(() => {
   getAnnonces();
 }, [])
@@ -47,40 +47,13 @@ useEffect(() => {
               <p><u>nom de l'employeur:</u> {annonce.nom_employeur}</p>
               <div class="encadrer">{annonce.contrat}</div>
               <p><u>ville :</u> {annonce.ville}</p>
-              <div onClick= {lien(annonce.id)}><button>Voir l'offre</button></div>
-              {/* <button >Voir l'offre</button> */}
+              <button onClick={() => router.push("/postuler?"+ annonce.id)}>Voir l'offre</button>
+
             </div>
           )
         })
       }
 
-          {/* <div> 
-              <h1><u>Developpeur Full Stack</u></h1>
-              <p><u>nom de l'employeur:</u> </p>
-              <div class="encadrer">CDI</div>
-              <p><u>ville :</u> 2</p>
-              <span id="d2">
-              <p><u>description :</u> 2</p>
-              <p><u>nombre de cercle :</u> 2</p>
-              <button onClick={lien}>Postulez</button>
-              </span>
-              <a onClick={togg}>lire la suite</a>
-
-
-          </div>
-          <div> 
-          <h1><u>Developpeur Back</u></h1>
-              <p><u>nom de l'employeur:</u> </p>
-              <div class="encadrer">CDI</div>
-              <p><u>ville :</u> 2</p>
-              <span id="d1">
-              <p><u>description :</u> 2</p>
-              <p><u>nombre de cercle :</u> 2</p>
-              <button onClick={lien}>Postulez</button>
-              </span>
-              <a onClick={togg}>lire la suite</a>
-
-          </div>*/}
         </div> 
         
 

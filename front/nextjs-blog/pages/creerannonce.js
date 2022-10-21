@@ -23,9 +23,10 @@ export default function creerannonce() {
                 console.log("annonce ajouter");
             })
         }
-    
+        function lien(){
+             window.location.href = "/validation";
+        }
 
-    //action="/" method="post"
 
     return (
 
@@ -52,7 +53,7 @@ export default function creerannonce() {
          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Décrivez votre entreprise" ></textarea><br></br>
          
          <input type="reset"></input><br></br>
-        <input type="submit" value="Envoyer"></input>
+        <input onClick={lien} type="submit" value="Envoyer"></input>
         
          </form>
 
