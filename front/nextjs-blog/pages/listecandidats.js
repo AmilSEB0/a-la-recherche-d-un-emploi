@@ -25,7 +25,7 @@ export default function listecandidats() {
     
 
       <>
-        <div class="droite"><Link href="/index.js">Voir les candidat</Link></div>
+        <div class="droite"><Link href="/">Voir les annonces</Link></div>
 
       <main>
           <h1 className="title">
