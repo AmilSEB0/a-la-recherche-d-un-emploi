@@ -2,6 +2,10 @@
 import axios from "axios";    
 import { useState, useEffect } from "react"
 import {useRouter} from "next/router"
+import ville from "../assets/icon-ville.png"
+import contrat from "../assets/icon-contrat.png"
+import Image from "next/image"
+import logo from "../public/favicon.ico"
 // import { useParams } from "react-router-dom";
 
 export default function postuler() {
@@ -42,11 +46,6 @@ export default function postuler() {
 
 
   
-    function lien(){
-      const id = window.location.search.slice(1)
-
-     window.location.href = "/listecandidats?"+id;
-  }
   useEffect(() => {
     getUnAnnonce();
   }, [])
@@ -54,38 +53,91 @@ export default function postuler() {
 
     return (
 
-      <div class="constructeur">
+      <body>
         {
     annonces.map((annonce, key) => (
-        <div key={key}>
-             <h1><u>{annonce.titre}</u></h1>
-              <p><u>Nom de l'entreprise:</u> {annonce.nom_employeur}</p>
-              <div class="encadrer">{annonce.contrat}</div>
-              <p><u>Ville :</u> {annonce.ville}</p>
-              <p><u>Description :</u> {annonce.description}</p>
-              <p><u>Nombre de candidat ayant postuler à cette annonce :</u> {annonce.nombre_de_candidats}</p>
-              <button onClick={() => router.push("/listecandidats?"+ annonce.id)}>Voir les candidat qui ont postuler à cette annonce</button>
+        <><div key={key}>
+          <div class="en-tete" >
+            <Image width='50%' height='50%' src={logo} onClick={() => router.push("/")}/>
+          <p>{annonce.nom_employeur}</p>
+        <h1>{annonce.titre}</h1>
+        <p><Image width='30%' height='30%' src={ville} class="img"/>{annonce.ville}    &ensp;&ensp; <Image width='30%' height='30%' src={contrat} class="img"/>{annonce.contrat}</p>
         </div>
-    ))
+        <p> {annonce.description}</p>
+        <p><u>Nombre de candidat ayant postuler à cette annonce :</u> {annonce.nombre_de_candidats}</p>
+        <button onClick={() => router.push("/listecandidats?" + annonce.id)}>Voir les candidat qui ont postuler à cette annonce</button>
+      </div>
+      
+      <div class="formulaire" id="bas">
+          <h2> Le poste de {annonce.titre} vous intéresse ? <br></br>Postulez dès maintenant</h2>
+          <form action="/validation" onSubmit={Ajout}>
+            <label>Nom*:</label>
+            <input value={nom} onChange={(e) => setNom(e.target.value)} type="text" placeholder="Quelle est votre nom de famille" /><br></br>
+            <label>Prénom*:</label>
+            <input value={prenom} onChange={(e) => setPrenom(e.target.value)} type="text" placeholder="Quelle est votre prénom" /><br></br>
+            <label>Email*:</label>
+            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Entrez votre email" /><br></br>
+            <label>Cv*:</label>
+            <input type="file" /><br></br>
+
+
+            <input type="submit" value="Déposer ma candidature"></input>
+
+          </form>
+        </div></>
+  ))
+}
+        <style>{`
+
+
+.formulaire div {
+   width: 100%;
+   border: solid black 2px;
+   /* margin-left: 10%; */
+   margin-right: 50%;
+   margin-top: 1%;
+   margin-bottom: 2%;
+}
+ form{
+   text-align:center;
+ }
+  input, textarea{
+   width: 100%;
+   margin-bottom: 2%;
+ }
+ label, input, textarea, option, button{
+   font-size:110%;
+ }
+ .formulaire{
+  background-color: silver;
+ }
+ h2{
+  text-align: center;
+ }
+ .en-tete p,h1{
+  text-align:center;
+ }
+ .en-tete{
+  margin-bottom:5%;
+  background-color: #00bfff;
+ }
+ p {
+  font-size: 110%;
+ }
+ body{
+    background-color: #87CEFA;
+    background-size: cover;
+ }
+#bas{
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right:0;
 }
 
+     `}</style>
 
-      <form action="/validation" onSubmit={Ajout}>
-          <label>Nom*:</label>
-          <input value={nom} onChange={(e) => setNom(e.target.value)}  type="text" placeholder="Quelle est votre nom de famille" /><br></br>
-          <label>Prénom*:</label>
-          <input value={prenom} onChange={(e) => setPrenom(e.target.value)} type="text" placeholder="Quelle est votre prénom" /><br></br>
-          <label>Email*:</label>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Entrez votre email" /><br></br>
-          <label>Cv*:</label>
-          <input type="file" /><br></br>
-
-
-          <input type="reset"></input><br></br>
-          <input type="submit" value="Déposer ma candidature"></input>
-
-        </form>
-        </div>
+        </body>
          
     )     
 
