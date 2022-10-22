@@ -24,14 +24,15 @@ export default function creerannonce() {
             })
         }
         function lien(){
-             window.location.href = "/validation";
+             window.location.href = "/validationannonce";
         }
 
 
     return (
 
-        
          <form onSubmit={Ajout}>
+                 
+
          <label>Titre*:</label>
          <input value={titre} onChange={(e) => setTitre(e.target.value)} type="text" placeholder="Ajouter un titre"/><br></br>
          <label for="last">Nom de l'entreprise*:</label>
@@ -39,7 +40,7 @@ export default function creerannonce() {
          <label>Ville*:</label>
          <input value={ville} onChange={(e) => setVille(e.target.value)} type="text" placeholder="Où se situe votre entreprise"/><br></br>
          <form>
-         <label>Contrat*:</label>
+         <label>Contrat*:</label><br></br>
         <select value={contrat} onChange={(e) => setContrat(e.target.value)} name="nom" size="1">
         <option value="">--Séléctionnez un contrat--</option>
         <option value="CDI">CDI</option>
@@ -49,11 +50,37 @@ export default function creerannonce() {
         <option value="Freelence">Freelence</option>
         </select>
         </form><br></br>
-         <label for="last">Description*:</label>
-         <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Décrivez votre entreprise" ></textarea><br></br>
+         <label>Description*:</label>
+         <textarea rows="15" cols="40" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Décrivez votre entreprise" ></textarea><br></br>
          
-         <input type="reset"></input><br></br>
-        <input onClick={lien} type="submit" value="Envoyer"></input>
+        <button class="bleu" onClick={lien} type="submit">Envoyer</button>
+
+        
+        <style>{`
+
+
+ div {
+    width: 100%;
+    border: solid black 2px;
+    background-color: rgb(248, 246, 246);
+    /* margin-left: 10%; */
+    margin-right: 50%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+  form{
+    text-align:center;
+  }
+  input, textarea{
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  label, input, textarea, option, button{
+    font-size:150%;
+  }
+
+
+      `}</style>
         
          </form>
 

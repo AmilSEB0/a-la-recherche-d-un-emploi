@@ -23,9 +23,10 @@ public class annonce {
     private String nom_employeur;
     private String titre;
     private String ville;
+    @Column(length = 10000)
     private String description;
     private String contrat;
-    private int nombre_de_clic;
+    private int nombre_de_clic = 0;
   //  private int nombre_de_candidats;
 
     

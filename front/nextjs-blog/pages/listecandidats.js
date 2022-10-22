@@ -49,20 +49,21 @@ export default function listecandidats() {
 
 
       </main><style>{`
-     .constructeur {
-      justify-content: center;
-      flex-wrap: wrap;
-  }
-  
-  .constructeur div {
-      width: 30%;
-      border: solid black 2px;
-      background-color: rgb(248, 246, 246);
-      /* margin-left: 10%; */
-      margin-right: 90%;
-      margin-top: 1%;
-      margin-bottom: 2%;
-  }
+.constructeur {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.constructeur div {
+    width: 30%;
+    border: solid black 2px;
+    background-color: rgb(248, 246, 246);
+    /* margin-left: 10%; */
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
   p{
     text-align:center;
   }
