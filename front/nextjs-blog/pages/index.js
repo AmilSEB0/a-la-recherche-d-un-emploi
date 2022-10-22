@@ -18,6 +18,7 @@ const [ annonces, setAnnonces] = useState([])
 
 useEffect(() => {
   getAnnonces();
+  
 }, [])
 
 
