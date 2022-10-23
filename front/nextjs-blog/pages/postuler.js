@@ -40,7 +40,7 @@ export default function postuler() {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(candidat)
         }).then(() => {
-            console.log("annonce ajouter");
+            console.log("Vous avez postulez");
         })
     }
 

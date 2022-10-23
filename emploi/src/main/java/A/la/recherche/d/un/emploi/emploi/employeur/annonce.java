@@ -4,9 +4,7 @@ import javax.persistence.*;
 
 import java.util.List;
 import java.util.ArrayList;
-
-
-
+import java.util.Date;
 
 @Entity
 public class annonce {
@@ -27,6 +25,7 @@ public class annonce {
     private String description;
     private String contrat;
     private int nombre_de_clic = 0;
+    private Date dates = new Date();
   //  private int nombre_de_candidats;
 
     
@@ -34,7 +33,7 @@ public class annonce {
 
 
 
-    public annonce(String nom_employeur, String titre, String ville, String description,  String contrat, int nombre_de_clic,  List<candidat> candidat){
+    public annonce(String nom_employeur, String titre, String ville, String description,  String contrat, int nombre_de_clic,  List<candidat> candidat ){
         this.nom_employeur = nom_employeur;
         this.titre = titre;
         this.ville = ville;
@@ -119,6 +118,14 @@ public class annonce {
 
     public List<candidat> getCandidat() {
         return this.candidat;
+    }
+
+    public void setDate(Date dates) {
+        this.dates = dates;
+    }
+
+    public Date getDate() {
+        return this.dates;
     }
 
     public int getNombre_de_candidats(){

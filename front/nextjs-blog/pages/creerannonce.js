@@ -1,38 +1,61 @@
 //import Link from 'next/link';
 
-import { useState } from "react"
+import { useEffect, useState } from "react";
 
 export default function creerannonce() {
 
-    
         const [titre, setTitre] = useState('');
         const [nom_employeur, setNom_Employeur] = useState('');
         const [ville, setVille] = useState('');
         const [contrat, setContrat] = useState('');
         const [description, setDescription] = useState('');
+        const date =  null
+
 
         const Ajout = (e) => {
             e.preventDefault();
-            const annonce = {titre, nom_employeur, ville, contrat, description}
+            date =  new Date();
+            const annonce = {titre, nom_employeur, ville, contrat, description, date}
 
             fetch('http://localhost:9090/annonce', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(annonce)
             }).then(() => {
+              lien()
                 console.log("annonce ajouter");
             })
         }
         function lien(){
              window.location.href = "/validationannonce";
         }
+      const getAujourduhiu =() =>{
 
+        let debut = new Date()
+        
+
+        const day = ('0' + debut.getUTCDate()).slice(-2);
+        const month = debut.toLocaleDateString('fr-FR', {month: 'long'});
+        const year = debut.getUTCFullYear();
+        const hours = ('0' + debut.getUTCHours()).slice(-2);
+        const minutes = ('0' + debut.getUTCMinutes()).slice(-2);
+        const heure = hours + 2;
+  
+        const dateform = `${day} ${month} ${year} à ${heure}:${minutes}`;
+        console.log(dateform)
+  
+      }
+        useEffect(() => {
+          console.log(getAujourduhiu());
+          
+        }, [])
 
     return (
 
          <form onSubmit={Ajout}>
                  
 
+         <br></br>
          <label>Titre*:</label>
          <input value={titre} onChange={(e) => setTitre(e.target.value)} type="text" placeholder="Ajouter un titre"/><br></br>
          <label for="last">Nom de l'entreprise*:</label>
@@ -53,30 +76,36 @@ export default function creerannonce() {
          <label>Description*:</label>
          <textarea rows="15" cols="40" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Décrivez votre entreprise" ></textarea><br></br>
          
-        <button class="bleu" onClick={lien} type="submit">Envoyer</button>
+        <button class="bleu"  type="submit">Envoyer</button>
 
         
         <style>{`
 
 
  div {
-    width: 100%;
+    width: 90%;
     border: solid black 2px;
     background-color: rgb(248, 246, 246);
-    /* margin-left: 10%; */
+    margin-left: 2%;
     margin-right: 50%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 2%;
 }
   form{
     text-align:center;
   }
   input, textarea{
-    width: 100%;
+    width: 99%;
     margin-bottom: 2%;
+
   }
   label, input, textarea, option, button{
     font-size:150%;
+  }
+  html{
+    background-color: #afeeee;
+    background-size: cover;
+
   }
 
 
