@@ -33,8 +33,14 @@ export default function postuler() {
         e.preventDefault();
         id_annonce =  id
         const candidat = {nom, prenom, email, id_annonce}
+        let Regex = /^[a-zA-Z-/s]+$/;
         
-
+        if(nom == "" || prenom == "" || email == ""){
+          alert("Une ou plusieurs données sont manquant(s)");
+        }else if (Regex.test(nom) == false || Regex.test(prenom) == false ){
+           alert("Une ou plusieurs valeurs interdite ont été saisie")
+        }
+        else{
         fetch('http://localhost:9090/candidat', {
             method: 'POST',
             headers: { "Content-Type": "application/json"},
@@ -42,12 +48,12 @@ export default function postuler() {
         }).then(() => {
             console.log("Vous avez postulez");
         })
-    }
-
+    }}
 
   
   useEffect(() => {
     getUnAnnonce();
+
   }, [])
 
 
@@ -72,7 +78,7 @@ export default function postuler() {
           <h2> Le poste de {annonce.titre} vous intéresse ? <br></br>Postulez dès maintenant</h2>
           <form action="/validation" onSubmit={Ajout}>
             <label>Nom*:</label>
-            <input value={nom} onChange={(e) => setNom(e.target.value)} type="text" placeholder="Quelle est votre nom de famille" /><br></br>
+            <input value={nom} onChange={(e) => setNom(e.target.value)} type="name" placeholder="Quelle est votre nom de famille" /><br></br>
             <label>Prénom*:</label>
             <input value={prenom} onChange={(e) => setPrenom(e.target.value)} type="text" placeholder="Quelle est votre prénom" /><br></br>
             <label>Email*:</label>

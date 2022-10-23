@@ -16,7 +16,9 @@ export default function creerannonce() {
             e.preventDefault();
             date =  new Date();
             const annonce = {titre, nom_employeur, ville, contrat, description, date}
-
+            if(titre == "" || nom_employeur == "" || ville == "" || contrat == "" || description == ""){
+              alert("Une ou plusieurs données sont manquant(s)");
+            }else{
             fetch('http://localhost:9090/annonce', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json"},
@@ -25,30 +27,12 @@ export default function creerannonce() {
               lien()
                 console.log("annonce ajouter");
             })
-        }
+        }}
         function lien(){
              window.location.href = "/validationannonce";
         }
-      const getAujourduhiu =() =>{
+      
 
-        let debut = new Date()
-        
-
-        const day = ('0' + debut.getUTCDate()).slice(-2);
-        const month = debut.toLocaleDateString('fr-FR', {month: 'long'});
-        const year = debut.getUTCFullYear();
-        const hours = ('0' + debut.getUTCHours()).slice(-2);
-        const minutes = ('0' + debut.getUTCMinutes()).slice(-2);
-        const heure = hours + 2;
-  
-        const dateform = `${day} ${month} ${year} à ${heure}:${minutes}`;
-        console.log(dateform)
-  
-      }
-        useEffect(() => {
-          console.log(getAujourduhiu());
-          
-        }, [])
 
     return (
 
