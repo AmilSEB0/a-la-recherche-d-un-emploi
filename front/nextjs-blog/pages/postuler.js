@@ -123,17 +123,13 @@ export default function postuler() {
  }
  p {
   font-size: 110%;
+  font-color: black;
  }
  body{
-    background-color: #87CEFA;
+    background-color: #DCDCDC;
     background-size: cover;
  }
-#bas{
-    position: fixed; 
-    bottom: 0;
-    left: 0;
-    right:0;
-}
+
 
      `}</style>
 

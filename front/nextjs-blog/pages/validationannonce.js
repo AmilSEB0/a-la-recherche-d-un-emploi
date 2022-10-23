@@ -9,7 +9,7 @@ export default function validationannonce() {
 
         
          <><h1>Votre annonce à été créer avec succès</h1>
-         <p>Attendez vous avoir une centaine de candidature dans les prochain jour</p>
+         <p>Attendez vous avoir une centaine de candidature dans les prochains jour</p>
         <button onClick={() => router.push("/")}>Revenir à la recherche d'un emploi</button>
         
         <style >{`

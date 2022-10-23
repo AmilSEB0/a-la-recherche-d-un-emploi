@@ -24,15 +24,16 @@ export default function listecandidats() {
     
     
 
-      <>
+      <body>
         <div class="droite"><Link href="/">Voir les annonces</Link></div>
 
       <main>
-          <h1 className="title">
+          <h1>
               Voici la liste des candidats ayant postuler à cette offre
           </h1>
+          <hr></hr>
 
-          <div class="constructeur">
+          <div class="candidat">
 
           {
     candidats.map((annonce, key) => (
@@ -48,28 +49,52 @@ export default function listecandidats() {
 
 
 
-      </main><style>{`
-.constructeur {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+      </main>
+
+      <style >{`
+.candidat {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.constructeur div {
-    width: 30%;
-    border: solid black 2px;
-    background-color: rgb(248, 246, 246);
-    /* margin-left: 10%; */
-    margin-right: 10%;
-    margin-top: 1%;
-    margin-bottom: 2%;
+.candidat div {
+  width: 30%;
+  border: solid black 2px;
+  background-color: rgb(248, 246, 246);
+  /* margin-left: 10%; */
+  margin-right: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
-  p{
-    text-align:center;
-  }
-      `}</style><style jsx global>{`
-      
-      `}</style></>
+.droite{
+  text-align: right;
+}
+.encadrer{
+  border:1px solid black;
+}
+p{
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
+.titre{
+  background-color: #00bfff;
+  position: fixed; 
+
+}
+
+body{
+  background-color: #afeeee;
+  background-size: cover;
+}
+
+
+      `}</style>
+
+
+</body>
   )
   
 }

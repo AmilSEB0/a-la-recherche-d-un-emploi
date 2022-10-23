@@ -25,7 +25,7 @@ useEffect(() => {
 
 
   return (
-    <div class="container">
+    <>
       <div class="titre">
       <Head>
         <title>à la recherche d'un emploi</title>
@@ -96,16 +96,13 @@ h1{
 .titre{
   background-color: #00bfff;
 }
-.container{
+html{
   background-color: #afeeee;
-  height:1000vh;
+  background-size: cover;
 }
 
       `}</style>
 
-      <style jsx global>{`
-      
-      `}</style>
-    </div>
+    </>
   )
 }
