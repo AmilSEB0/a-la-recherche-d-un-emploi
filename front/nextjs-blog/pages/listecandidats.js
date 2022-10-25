@@ -38,7 +38,7 @@ export default function listecandidats() {
           {
     candidats.map((annonce, key) => (
         <div key={key}>
-             <p>{annonce.nom} {annonce.nom}</p>
+             <p>{annonce.nom} {annonce.prenom}</p>
              <p>{annonce.email}</p>
 
         </div>

@@ -58,4 +58,12 @@ public class candidat {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public int getid_annonce() {
+        return id_annonce;
+    }
+
+    public void setid_annonce(int id_annonce) {
+        this.id_annonce = id_annonce;
+    }
 }

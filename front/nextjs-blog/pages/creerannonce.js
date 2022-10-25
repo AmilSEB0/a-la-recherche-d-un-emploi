@@ -16,9 +16,13 @@ export default function creerannonce() {
             e.preventDefault();
             date =  new Date();
             const annonce = {titre, nom_employeur, ville, contrat, description, date}
+            let Regex = /^[a-zA-Z\u00C0-\u00ff\-\ ]+$/;
+
             if(titre == "" || nom_employeur == "" || ville == "" || contrat == "" || description == ""){
-              alert("Une ou plusieurs données sont manquant(s)");
-            }else{
+              alert("Une ou plusieurs donnée(s) sont manquant(s)");
+            }else if (Regex.test(ville) == false){
+              alert("Êtes-vous sûr pour le nom de votre ville")
+           }else{
             fetch('http://localhost:9090/annonce', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json"},
@@ -29,7 +33,7 @@ export default function creerannonce() {
             })
         }}
         function lien(){
-             window.location.href = "/validationannonce";
+             window.location.href = "/validationannonce/";
         }
       
 

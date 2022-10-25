@@ -33,12 +33,12 @@ export default function postuler() {
         e.preventDefault();
         id_annonce =  id
         const candidat = {nom, prenom, email, id_annonce}
-        let Regex = /^[a-zA-Z-/s]+$/;
+        let Regex = /^[a-zA-Z\u00C0-\u00ff\-\ ]+$/;
         
         if(nom == "" || prenom == "" || email == ""){
           alert("Une ou plusieurs données sont manquant(s)");
         }else if (Regex.test(nom) == false || Regex.test(prenom) == false ){
-           alert("Une ou plusieurs valeurs interdite ont été saisie")
+           alert("Une ou plusieurs valeurs interdite ont été saisie(s)")
         }
         else{
         fetch('http://localhost:9090/candidat', {
@@ -46,12 +46,16 @@ export default function postuler() {
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(candidat)
         }).then(() => {
+          lien()
             console.log("Vous avez postulez");
         })
     }}
     const formatDate = (value) => {
       return moment(value).format(' DD/MM/YYYY à HH:MM')
     }
+    function lien(){
+      window.location.href = "/validation";
+ }
 
   
   useEffect(() => {

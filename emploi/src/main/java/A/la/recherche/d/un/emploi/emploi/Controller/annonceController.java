@@ -44,7 +44,12 @@ public class annonceController {
         return annonceDao.save(annonce);
     }
  
- 
+    @PutMapping(value = "/annonce/{id}")
+    public void updateForme(@PathVariable int nombre_de_clic, @RequestBody annonce annonce) {
+        annonce.setNombre_de_clic(nombre_de_clic);
+        annonceDao.save(annonce);
+    }
+
  
 }
 
