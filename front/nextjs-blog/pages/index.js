@@ -15,10 +15,7 @@ const [ annonces, setAnnonces] = useState([])
     const data = await response.json()
     setAnnonces(data)
   }
-function format(){
-  var option = {year: 'numeric', month:'long', day:'numeric'}
-  return new Date().toLocaleDateString([], option)
-}
+
 
 useEffect(() => {
   getAnnonces();
@@ -54,7 +51,6 @@ useEffect(() => {
               <p><u>entreprise:</u> {annonce.nom_employeur}</p>
               <p><u>ville :</u> {annonce.ville}</p>
               <p class="encadrer">{annonce.contrat}</p>
-              <p>{annonce.date }</p>
               <p><button onClick={() => router.push("/postuler?"+ annonce.id)}>Voir l'offre</button></p>
 
             </div>

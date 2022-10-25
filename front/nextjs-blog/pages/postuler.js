@@ -7,6 +7,7 @@ import contrat from "../assets/icon-contrat.png"
 import Image from "next/image"
 import logo from "../public/favicon.ico"
 // import { useParams } from "react-router-dom";
+import moment from "moment"
 
 export default function postuler() {
   const router = useRouter();
@@ -18,7 +19,6 @@ export default function postuler() {
       const response = await fetch("http://localhost:9090/annonce/"+id)
       const data = await response.json()
       setAnnonces([data])
-      console.log(data)
     }
 
     const [nom, setNom] = useState('');
@@ -49,6 +49,9 @@ export default function postuler() {
             console.log("Vous avez postulez");
         })
     }}
+    const formatDate = (value) => {
+      return moment(value).format(' DD/MM/YYYY à HH:MM')
+    }
 
   
   useEffect(() => {
@@ -70,6 +73,7 @@ export default function postuler() {
         <p><Image width='30%' height='30%' src={ville} class="img"/>{annonce.ville}    &ensp;&ensp; <Image width='30%' height='30%' src={contrat} class="img"/>{annonce.contrat}</p>
         </div>
         <p> {annonce.description}</p>
+        <p>Annonce posté le {formatDate(annonce.date)}</p>
         <p><u>Nombre de candidat ayant postuler à cette annonce :</u> {annonce.nombre_de_candidats}</p>
         <button onClick={() => router.push("/listecandidats?" + annonce.id)}>Voir les candidat qui ont postuler à cette annonce</button>
       </div>
