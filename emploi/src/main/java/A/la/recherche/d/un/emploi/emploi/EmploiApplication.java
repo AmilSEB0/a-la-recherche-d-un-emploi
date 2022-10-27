@@ -35,12 +35,12 @@ public class EmploiApplication {
 	public CommandLineRunner initData(annonceDao annoncedao, candidatsDao candidatsdao) {
 		return (args) -> {
 			// Candidats
-			candidat Jean = new candidat("Jacques","Jean","jean@jacques.fr");
-			candidat Cerise = new candidat("Josseaume","Cerise","cerise@josseaume.fr");
-			candidat Alexandre = new candidat("St-Jean","Alexandre","alexandre@st-jean.fr");
-			candidat Édouard = new candidat("Huard","Édouard","edouard@huard.fr");
-			candidat Camille = new candidat("Trudeau","Camille","camille@trudeau.fr");
-			candidat Orva = new candidat("Meilleur","Orva","ovra@meilleur.fr");
+			candidat Jean = new candidat("Jacques","Jean","jean@jacques.fr",1);
+			candidat Cerise = new candidat("Josseaume","Cerise","cerise@josseaume.fr",1);
+			candidat Alexandre = new candidat("St-Jean","Alexandre","alexandre@st-jean.fr",1);
+			candidat Édouard = new candidat("Huard","Édouard","edouard@huard.fr",1);
+			candidat Camille = new candidat("Trudeau","Camille","camille@trudeau.fr",1);
+			candidat Orva = new candidat("Meilleur","Orva","ovra@meilleur.fr",1);
 
 			
 

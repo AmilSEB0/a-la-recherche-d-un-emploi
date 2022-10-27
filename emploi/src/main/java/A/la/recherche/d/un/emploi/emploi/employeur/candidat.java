@@ -16,12 +16,15 @@ public class candidat {
     private String prenom;
     @Column
     private String email;
+    @Column
+    private int id_annonce; 
 
 
-    public candidat(String nom, String prenom, String email) {
+    public candidat(String nom, String prenom, String email,int id_annonce) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
+        this.id_annonce = id_annonce;
     }
 
     public candidat() {
@@ -59,5 +62,12 @@ public class candidat {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    public int getId_annonce() {
+        return id_annonce;
+    }
+
+    public void setId_annonce(int id_annonce) {
+        this.id_annonce = id_annonce;
     }
 }
