@@ -1,7 +1,7 @@
-Le projet a été fait en Spring Boot pour le back, Next. JS pour le front, MYSQL pour la base de données et l'API est un API REST
+Le projet a été fait en Spring Boot pour le back, Next.JS pour le front, MYSQL pour la base de données et l'API est un API REST
 
 Pour lancer le projet :
-une fois le projet installé pour le front il faut faire cd front/nextjs-blog, une fois dans le bon fichier faite npm run dev.
+une fois le projet installé pour le front il faut faire cd front/nextjs-blog dans le terminal, une fois dans le bon fichier faite npm run dev.
 Allez sur localhost:3000 pour voir le résultat.
 
 Pour la base de données il faudra que vous installiez Xampp (https://www.apachefriends.org/fr/download.html); 
