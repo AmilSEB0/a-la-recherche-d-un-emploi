@@ -9,17 +9,19 @@ public class candidat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String nom;
+    @Column
     private String prenom;
+    @Column
     private String email;
-    private int id_annonce;
 
 
-    public candidat(String nom, String prenom, String email, int id_annonce) {
+    public candidat(String nom, String prenom, String email) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.id_annonce = id_annonce;
     }
 
     public candidat() {
@@ -57,13 +59,5 @@ public class candidat {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getid_annonce() {
-        return id_annonce;
-    }
-
-    public void setid_annonce(int id_annonce) {
-        this.id_annonce = id_annonce;
     }
 }

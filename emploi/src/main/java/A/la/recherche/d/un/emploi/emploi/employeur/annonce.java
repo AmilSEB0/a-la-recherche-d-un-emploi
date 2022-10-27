@@ -17,14 +17,19 @@ public class annonce {
     private int id;
    
 
-
+    @Column
     private String nom_employeur;
+    @Column
     private String titre;
+    @Column
     private String ville;
     @Column(length = 10000)
     private String description;
+    @Column
     private String contrat;
+    @Column
     private int nombre_de_clic = 0;
+    @Column
     private Date dates = new Date();
   //  private int nombre_de_candidats;
 
